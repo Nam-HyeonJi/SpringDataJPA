@@ -257,4 +257,9 @@ class MemberRepositoryTest {
 
         em.flush();
     }
+    
+    @Test
+    public void callCustom() {
+        memberRepository.findMemberCustom();
+    }
 }
