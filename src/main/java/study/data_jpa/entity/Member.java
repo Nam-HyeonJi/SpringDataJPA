@@ -11,6 +11,7 @@ import lombok.*;
         name="Member.findByUsername",
         query="select m from Member m where m.username = :username"
 )
+@NamedEntityGraph(name = "Member.all",  attributeNodes = @NamedAttributeNode("team"))
 public class Member {
 
     @Id @GeneratedValue
@@ -46,5 +47,9 @@ public class Member {
     public void setTeam(Team team) {
         this.team = team;
         team.getMembers().add(this);
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
